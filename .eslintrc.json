@@ -29,8 +29,8 @@
       1,
       {
         "extensions": [
-          ".js",
-          ".jsx"
+          ".ts",
+          ".tsx"
         ]
       }
     ],
@@ -42,6 +42,7 @@
         "maxEOF": 0
       }
     ],
+    "import/extensions": "off",
     "spaced-comment": 0,
     "comma-dangle": 0,
     "object-curly-spacing": 0,
@@ -81,6 +82,7 @@
     "guard-for-in": "off",
     "prefer-destructuring": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-use-before-define": "off"
   }
 }
