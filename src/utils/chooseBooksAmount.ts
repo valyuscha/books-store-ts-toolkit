@@ -3,7 +3,7 @@ import {AddRemoveBookFromCartAction} from 'globalTypes'
 export const chooseBooksAmount = (
   chosenAmountOfBooks: number,
   availableAmountOfBooks: number,
-  action: AddRemoveBookFromCartAction
+  action: AddRemoveBookFromCartAction,
 ) => {
   switch (action) {
     case 'add':

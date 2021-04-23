@@ -3,7 +3,7 @@ import {
   createAsyncThunk
 } from '@reduxjs/toolkit'
 import {startLoading, stopLoading} from 'store'
-import {getCookie} from 'utils'
+import {getCookie, deleteCookie} from 'utils'
 import {serverCommunicationMethods} from 'serverCommunication'
 
 const token = getCookie('token')
@@ -41,6 +41,8 @@ export const loginSlice = createSlice({
       state.isLoggedIn = true
     },
     logout: (state) => {
+      deleteCookie('token')
+      localStorage.removeItem('activeUser')
       state.isLoggedIn = false
     }
   }

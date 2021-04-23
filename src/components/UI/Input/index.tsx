@@ -6,14 +6,14 @@ import {InputWrapper, Label, Field, ErrorMessage, SearchIcon} from './style'
 interface InputProps {
   fieldType: 'login' | 'search'
   isValid?: boolean
-  isTouched: boolean
+  isTouched?: boolean
   label?: string
   type: string
   value: string
   placeholder?: string
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
-  onBlur: (event: FocusEvent<HTMLInputElement>) => void
-  errorMessage: string
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void
+  errorMessage?: string
 }
 
 const Input: FC<InputProps> = (props) => (

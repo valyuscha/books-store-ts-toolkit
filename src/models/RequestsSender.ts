@@ -1,6 +1,7 @@
 import {axios} from 'utils'
 import {Dispatch} from '@reduxjs/toolkit'
 import {showResponseErrorMessage, logout} from 'store'
+import {ICartBook} from 'globalInterfaces'
 import ResponseDebugger from './ResponseDebugger'
 
 class RequestsSender extends ResponseDebugger {
@@ -28,22 +29,21 @@ class RequestsSender extends ResponseDebugger {
     )
   }
 
-  // getAllBooks = async (dispatch: ThunkDispatch<any, any, any>) => {
-  //   return await this.getResponse(axios.get('/books'), dispatch, logout)
-  // }
-  //
-  // getCurrentBookInfo = async (bookId: number, dispatch: ThunkDispatch<any, any, any>) => {
-  //   return await this.getResponse(axios.get(`/books/${bookId}`), dispatch, logout)
-  // }
+  getAllBooks = async (dispatch: Dispatch) => {
+    return await this.getResponse(axios.get('/books'), dispatch, logout)
+  }
 
-  // purchase = async (booksList, dispatch) => {
-  //   const purchaseData = {
-  //     books: booksList
-  //   }
-  //
-  //   return await this.getResponse(axios.post('/purchase',
-  //  JSON.stringify(purchaseData)), dispatch, logout)
-  // }
+  getCurrentBookInfo = async (bookId: number | string, dispatch: Dispatch) => {
+    return await this.getResponse(axios.get(`/books/${bookId}`), dispatch, logout)
+  }
+
+  purchase = async (booksList: ICartBook[], dispatch: Dispatch) => {
+    const purchaseData = {
+      books: booksList
+    }
+
+    return await this.getResponse(axios.post('/purchase', JSON.stringify(purchaseData)), dispatch, logout)
+  }
 }
 
 export default RequestsSender
